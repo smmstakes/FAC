@@ -1,0 +1,30 @@
+.data				#Define a parte de dados para o assembly
+enter: 
+	.string "\n"		#Define a string e o seu respectivo valor
+
+.text				#Diz para o assembly que a parte abaixo é texto/código
+main:
+	li a0, 0		#Inicializando a0 com zero
+	li a2, 0		#Definindo a entrada padrão
+	li a7, 5		#Definindo o valor de a7 para a chamada de sistema
+	ecall			#Lendo um inteiro a partir da entrada e salva em a0
+	 
+	add t0, zero, a0	#Salvando o conteudo de a0 em t0
+	li a0, 0		#Redefinindo a0 com zero
+	li  a2, 0		#Definindo a entrada padrão
+	li  a7, 5		#Definindo o valor de a7 para a chamada de sistema
+	ecall			#Lendo um inteiro a partir da entrada e salva em a0
+	
+	add t1, zero, a0	#Salvando o conteudo de a0 em t1
+	add a0, t1, t0		#Somando o conteudo de t0 e t1 e salvando em a0
+	li a2, 1		#Definindo a saída padrão
+	li a7, 1		#Definindo o valor de a7 para a chamada de sistema
+	ecall			#Imprime um inteiro que está em a0
+	
+	la a0, enter		#Carrega a palavra da label enter em a0
+	li a7, 4		#Definindo o valor de a7 para a chamada de sistema
+	ecall			#Imprime uma string que está em a0
+	
+	li a7, 10		#Carrega um imediato no registrador a7
+	ecall			#Realiza a finalização do programa
+	
