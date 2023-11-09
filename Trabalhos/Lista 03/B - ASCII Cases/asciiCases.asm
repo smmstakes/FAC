@@ -4,19 +4,18 @@
 	fim_str: .asciz "\0"			#Terminador
 	.
 
-.text						#M = 77 // m = 109 // c = 99
-	addi s2, zero, 77			#s2 = M = 77
-	addi s3, zero, 109			#s3 = m = 109
-	addi s4, zero, 99			#s4 = c = 99
-	add t0, zero, zero
-
-	li a2, 0			#Definindo a entrada padrão
+.text	
+	li t0, 0			#M = 77 // m = 109 // c = 99
+	li s2, 77			#s2 = M = 77
+	li s3, 109			#s3 = m = 109
+	li s4, 99			#s4 = c = 99
+	
 	li a0, 0			#Inicializando a0 com zero
 
 	li a7, 12			#Ler um Char
 	ecall
 	mv t0, a0			#t0 = tipo_Operação
-
+	ecall
 
 	li a7, 5			#Ler um inteiro
 	ecall
