@@ -2,7 +2,6 @@
 	str1: .space 1000			#Separando um buffer para a string
 	NW: .asciz "\n"				#New Line
 	fim_str: .asciz "\0"			#Terminador
-	.
 
 .text						#M = 77 // m = 109 // c = 99
 	addi s2, zero, 77			#s2 = M = 77
@@ -15,7 +14,9 @@
 
 	li a7, 12			#Ler um Char
 	ecall
-	mv t0, a0			#t0 = tipo_Operação
+	addi t0, a0, 0
+
+	li a7, 12			#Ler um Char
 	ecall
 
 	li a7, 5			#Ler um inteiro
