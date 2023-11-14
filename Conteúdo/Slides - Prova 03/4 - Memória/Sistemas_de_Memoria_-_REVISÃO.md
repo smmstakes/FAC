@@ -51,4 +51,40 @@ O esforço gasto aumentando a performance de um subsistema é desperdiçado, a m
 
 # Cache
 
-A cache é uma memória de alta velocidade que armazena uma cópia dos dados/instruções que estão na memória principal.
+- **Maior nível de hieraquia**
+- **Menor capacidade**
+- A cache é uma memória de alta velocidade que armazena uma cópia dos dados/instruções que estão na memória principal.
+- Fornece a maior parte de dados para o processador
+
+# Memória Virtual
+
+Memória principal (DRAM) age como uma cache para o disco rígido.
+   - Impressão de maior memória.
+
+|Cache|Memória Virtual|
+|:---:|:-------------:|
+|Bloco|Página|
+|Block Size|Page Size|
+|Block Offset|Page Offset|
+|Miss|Page Fault|
+|Tag|Virtual Page Number|
+
+## Endereços Virtuais
+
+Os programas utilizam de memórias virtuais, que são endereços que não são reais, mas que são mapeados para endereços reais. A CPU realiza essa tradução de endereços.
+
+*A memória física age como uma cache para a memória virtual.*
+
+- **Page Size:** Quantidade de memoria transferida do disco para a memória principal.
+- **Address Translation:** Mapeamento de endereços virtuais para endereços físicos.
+- **Page Table:** Tabela que contém os endereços virtuais para os endereços físicos.
+  - Bit Valido: Indica se a página está na memória física ou não.
+  - Número da Página Física: Aonde a página está alocada
+
+Load/Store precisa de **2 acessos a memória**:
+1. Acessa a tabela de páginas para encontrar o endereço físico. (Tradução)
+2. Acessa os dados (Pós-Tradução)
+
+# TLB (Translation Lookaside Buffer)
+
+Reduz o tempo de acesso a memória virtual, armazenando os endereços virtuais mais recentes.
